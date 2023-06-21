@@ -16,7 +16,7 @@ namespace SistemaPub.Repository
 
         public async Task<List<Comanda>> BuscarTodasComandasAtivas()
         {
-            return await _db.Comandas.Where(c => c.Ativa == 1).Include(c=>c.ProdutosComanda).ThenInclude(p => p.Produto).ToListAsync();
+            return await _db.Comandas.Where(c => c.Ativa == 1).ToListAsync();
             //.ToListAsync();
         }
 
@@ -31,8 +31,6 @@ namespace SistemaPub.Repository
 
         public async Task<Comanda> FecharComanda(int id)
         {
-            
-
             Comanda comanda = await _db.Comandas.Include(c=>c.ProdutosComanda).ThenInclude(p=>p.Produto).FirstOrDefaultAsync(c => c.Id == id);
             comanda.Ativa = 0;
             comanda.DataComandaFechada = DateTime.Now;
