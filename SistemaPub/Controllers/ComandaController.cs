@@ -49,6 +49,12 @@ namespace SistemaPub.Controllers
             return Ok(comandasAtivas);
         }
 
+        [HttpGet("BuscarComandasFechadas")]
+        public async Task<IActionResult> BuscarComandasFechadas()
+        {
+            List<Comanda> comandasInativas = await _repo.BuscarComandasInativas();
+            return Ok(comandasInativas);
+        }
 
 
     }

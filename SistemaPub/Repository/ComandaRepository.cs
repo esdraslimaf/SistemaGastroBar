@@ -16,10 +16,14 @@ namespace SistemaPub.Repository
 
         public async Task<List<Comanda>> BuscarTodasComandasAtivas()
         {
-            return await _db.Comandas.Where(c => c.Ativa == 1).ToListAsync();
+             return await _db.Comandas.Where(c => c.Ativa == 1).ToListAsync();
             //.ToListAsync();
         }
 
+        public async Task<List<Comanda>> BuscarComandasInativas()
+        {
+            return await _db.Comandas.Where(c => c.Ativa != 1).ToListAsync();
+        }
 
 
         public async Task<Comanda> AdicionarNovaComanda(Comanda comanda)
@@ -47,5 +51,7 @@ namespace SistemaPub.Repository
             await _db.SaveChangesAsync();
             return comanda;
         }
+
+      
     }
 }
