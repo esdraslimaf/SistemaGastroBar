@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaPub.Database;
 
@@ -11,9 +12,11 @@ using SistemaPub.Database;
 namespace SistemaPub.Migrations
 {
     [DbContext(typeof(PubContext))]
-    partial class PubContextModelSnapshot : ModelSnapshot
+    [Migration("20230620013604_novasTabelas")]
+    partial class novasTabelas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,26 @@ namespace SistemaPub.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("SistemaPub.Models.Cliente", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Horario")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clientes");
+                });
 
             modelBuilder.Entity("SistemaPub.Models.Comanda", b =>
                 {
@@ -30,22 +53,13 @@ namespace SistemaPub.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Ativa")
+                    b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DataComandaAbriu")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DataComandaFechada")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("IdentificaCliente")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal?>("ValorComanda")
-                        .HasColumnType("decimal(18,2)");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("ClienteId")
+                        .IsUnique();
 
                     b.ToTable("Comandas");
                 });
@@ -155,6 +169,9 @@ namespace SistemaPub.Migrations
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ComandaId");
@@ -162,6 +179,17 @@ namespace SistemaPub.Migrations
                     b.HasIndex("ProdutoId");
 
                     b.ToTable("ProdutosComandas");
+                });
+
+            modelBuilder.Entity("SistemaPub.Models.Comanda", b =>
+                {
+                    b.HasOne("SistemaPub.Models.Cliente", "Cliente")
+                        .WithOne("Comanda")
+                        .HasForeignKey("SistemaPub.Models.Comanda", "ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
                 });
 
             modelBuilder.Entity("SistemaPub.Models.ProdutoComanda", b =>
@@ -181,6 +209,12 @@ namespace SistemaPub.Migrations
                     b.Navigation("Comanda");
 
                     b.Navigation("Produto");
+                });
+
+            modelBuilder.Entity("SistemaPub.Models.Cliente", b =>
+                {
+                    b.Navigation("Comanda")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SistemaPub.Models.Comanda", b =>

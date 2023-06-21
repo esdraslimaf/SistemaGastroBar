@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SistemaPub.Database;
 using SistemaPub.Repository;
+using SistemaPub.Repository.Interfaces;
+using System.Text.Json.Serialization;
 
 namespace SistemaPub
 {
@@ -12,11 +14,14 @@ namespace SistemaPub
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddScoped<IClienteRepository,ClienteRepository>();
+            builder.Services.AddScoped<IComandaRepository,ComandaRepository>();
+            builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            builder.Services.AddScoped<IComandaProdutoRepository, ComandaProdutoRepository>();
             builder.Services.AddDbContext<PubContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection")));
 
             var app = builder.Build();

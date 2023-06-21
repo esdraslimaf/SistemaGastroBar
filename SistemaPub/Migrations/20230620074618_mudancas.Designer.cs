@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaPub.Database;
 
@@ -11,9 +12,11 @@ using SistemaPub.Database;
 namespace SistemaPub.Migrations
 {
     [DbContext(typeof(PubContext))]
-    partial class PubContextModelSnapshot : ModelSnapshot
+    [Migration("20230620074618_mudancas")]
+    partial class mudancas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,17 +36,11 @@ namespace SistemaPub.Migrations
                     b.Property<int>("Ativa")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DataComandaAbriu")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DataComandaFechada")
+                    b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("IdentificaCliente")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal?>("ValorComanda")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
