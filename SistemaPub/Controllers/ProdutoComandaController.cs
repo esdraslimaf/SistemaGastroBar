@@ -13,7 +13,12 @@ namespace SistemaPub.Controllers
         {
             _repo = repo;
         }
-
+        /// <summary>
+        /// Método para cadastrar um pedido de um determinado cliente
+        /// </summary>
+        /// <param name="IdComanda"></param>
+        /// <param name="IdProduto"></param>
+        /// <returns></returns>
         [HttpPost("{IdComanda}/{IdProduto}")]
         public IActionResult NovoPedido(int IdComanda, int IdProduto)
         {

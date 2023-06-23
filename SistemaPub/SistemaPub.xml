@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SistemaPub</name>
+    </assembly>
+    <members>
+        <member name="M:SistemaPub.Controllers.ComandaController.AdicionarNovaComanda(SistemaPub.Models.Comanda)">
+            <summary>
+            Método para abrir uma comanda para um cliente
+            </summary>
+            <param name="comanda">Inserir apenas a identificação do cliente. Quanto a comanda ser ativa ou não: 1 para ativa, 0 para inativa. 
+            <para>Exemplo: </para>
+            <para>{"identificaCliente": "Esdras Lima"}</para>    
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:SistemaPub.Controllers.ComandaController.FecharComanda(System.Int32)">
+            <summary>
+            Método para fechar uma comanda aberta por ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SistemaPub.Controllers.ComandaController.BuscarComandasEmAberto">
+            <summary>
+            Método para ver as comandas ativas.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SistemaPub.Controllers.ComandaController.BuscarComandasFechadas">
+            <summary>
+            Método para ver as comandas inativas.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SistemaPub.Controllers.ProdutoComandaController.NovoPedido(System.Int32,System.Int32)">
+            <summary>
+            Método para cadastrar um pedido de um determinado cliente
+            </summary>
+            <param name="IdComanda"></param>
+            <param name="IdProduto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SistemaPub.Controllers.ProdutoController.AdicionarProduto(SistemaPub.Models.Produto)">
+            <summary>
+            Método para adicionar um novo Item/Produto/Prato à lista
+            </summary>
+            <param name="produto">{
+            <para>nome": "Batata com cheddar e bacon", "preco": 10, estoque: 4</para>
+            <para>}</para>
+            <para>Obs: Estoque é opcional, você pode remover este atributo caso prefira</para>
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:SistemaPub.Controllers.ProdutoController.BuscarProdutos">
+            <summary>
+            Busca todos os itens disponíveis no cardápio
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SistemaPub.Controllers.ProdutoController.BuscarProdutoPorId(System.Int32)">
+            <summary>
+            Busca informações relativas a apenas um único item
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SistemaPub.Controllers.ProdutoController.RemoverProduto(System.Int32)">
+            <summary>
+            Deleta um determinado item, produto ou prato do menu principal
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SistemaPub.Controllers.ProdutoController.AtualizarProduto(SistemaPub.Models.Produto)">
+            <summary>
+            Atualiza um determinado item, produto ou prato
+            </summary>
+            <param name="produto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SistemaPub.Migrations.inicial">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.inicial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.inicial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.inicial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaPub.Migrations.novasTabelas">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.novasTabelas.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.novasTabelas.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.novasTabelas.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaPub.Migrations.mudancas">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.mudancas.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.mudancas.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.mudancas.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaPub.Migrations.ReferenciasNullables">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.ReferenciasNullables.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.ReferenciasNullables.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.ReferenciasNullables.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaPub.Migrations.ColunaDataEncerramenteComanda">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.ColunaDataEncerramenteComanda.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.ColunaDataEncerramenteComanda.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.ColunaDataEncerramenteComanda.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:SistemaPub.Migrations.NovaColunaComandaValor">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.NovaColunaComandaValor.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.NovaColunaComandaValor.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:SistemaPub.Migrations.NovaColunaComandaValor.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

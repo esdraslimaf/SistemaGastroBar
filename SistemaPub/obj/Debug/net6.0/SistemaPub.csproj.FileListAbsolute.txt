@@ -80,3 +80,6 @@ C:\Projetos\ClientesRestaurante\SistemaPub\SistemaPub\obj\Debug\net6.0\refint\Si
 C:\Projetos\ClientesRestaurante\SistemaPub\SistemaPub\obj\Debug\net6.0\SistemaPub.pdb
 C:\Projetos\ClientesRestaurante\SistemaPub\SistemaPub\obj\Debug\net6.0\SistemaPub.genruntimeconfig.cache
 C:\Projetos\ClientesRestaurante\SistemaPub\SistemaPub\obj\Debug\net6.0\ref\SistemaPub.dll
+C:\Projetos\ClientesRestaurante\SistemaPub\SistemaPub\bin\Debug\net6.0\SistemaPub.xml
+C:\Projetos\ClientesRestaurante\SistemaPub\SistemaPub\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Projetos\ClientesRestaurante\SistemaPub\SistemaPub\bin\Debug\net6.0\System.IO.Packaging.dll

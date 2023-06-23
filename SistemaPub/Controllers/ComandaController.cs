@@ -15,14 +15,27 @@ namespace SistemaPub.Controllers
         {
             _repo = repo;
         }
-
-        [HttpPost] 
+        /// <summary>
+        /// Método para abrir uma comanda para um cliente
+        /// </summary>
+        /// <param name="comanda">Inserir apenas a identificação do cliente. Quanto a comanda ser ativa ou não: 1 para ativa, 0 para inativa. 
+        /// <para>Exemplo: </para>
+        /// <para>{"identificaCliente": "Esdras Lima"}</para>    
+        /// </param>
+        /// <returns></returns>
+        [HttpPost("AbrirComanda")] 
         public async Task<IActionResult> AdicionarNovaComanda([FromBody] Comanda comanda)
         {
             await _repo.AdicionarNovaComanda(comanda);
             return Ok($"A comanda para {comanda.IdentificaCliente} foi adicionada");
         }
 
+
+        /// <summary>
+        /// Método para fechar uma comanda aberta por ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost("FecharComanda/{id}")]
         public async Task<IActionResult> FecharComanda(int id)
         {
@@ -42,6 +55,10 @@ namespace SistemaPub.Controllers
                 $"Valor total:{comanda.ValorComanda}");
         }
 
+        /// <summary>
+        /// Método para ver as comandas ativas.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("BuscarComandasEmAberto")]
         public async Task<IActionResult> BuscarComandasEmAberto()
         {
@@ -49,6 +66,10 @@ namespace SistemaPub.Controllers
             return Ok(comandasAtivas);
         }
 
+        /// <summary>
+        /// Método para ver as comandas inativas.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("BuscarComandasFechadas")]
         public async Task<IActionResult> BuscarComandasFechadas()
         {
