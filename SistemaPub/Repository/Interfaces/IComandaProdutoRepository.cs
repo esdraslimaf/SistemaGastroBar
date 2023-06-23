@@ -4,7 +4,11 @@ namespace SistemaPub.Repository.Interfaces
 {
     public interface IComandaProdutoRepository
     {
-        void NovoPedido(int comanda, int produto);
+        int NovoPedido(int comanda, int produto);
         List<ProdutoComanda> BuscarPedidosClientes();
+        void RemoverPedido(int idpedido);
+        Comanda RetornaComanda(int id);
+        Produto RetornaProduto(int id);
+        
     }
 }

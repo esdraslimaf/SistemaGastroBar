@@ -17,18 +17,42 @@ namespace SistemaPub.Repository
             return _db.ProdutosComandas.ToList();
         }
 
-      /*  public decimal ContaTotal(int id)
-        {
-            var comanda = _db.Comandas.Find(id);
-            return comanda.ValorTotalComanda();
-        } */
+        /*  public decimal ContaTotal(int id)
+          {
+              var comanda = _db.Comandas.Find(id);
+              return comanda.ValorTotalComanda();
+          } */
 
-        public void NovoPedido(int comanda, int produto)
+        public Comanda RetornaComanda(int id)
         {
-            _db.ProdutosComandas.Add(new ProdutoComanda(comanda,produto));
-           
-            Comanda comandadb = _db.Comandas.Find(comanda);
-            Produto produtodb = _db.Produtos.Find(produto);
+            return _db.Comandas.Find(id);
+        }
+
+        public Produto RetornaProduto(int id)
+        {
+            return _db.Produtos.Find(id);
+        }
+
+        public int AdicionaProdutoComanda(int idcomanda, int idproduto)
+        {
+            ProdutoComanda novoProdutoComanda = new ProdutoComanda(idcomanda, idproduto);
+            _db.ProdutosComandas.Add(novoProdutoComanda);
+            _db.SaveChanges();
+            return novoProdutoComanda.Id;
+        }
+
+        public int NovoPedido(int comanda, int produto)
+        {
+
+           int valorIdPedido = AdicionaProdutoComanda(comanda, produto);
+         
+         //_db.ProdutosComandas.Add(new ProdutoComanda(comanda,produto));        
+
+            /*  Comanda comandadb = _db.Comandas.Find(comanda);
+              Produto produtodb = _db.Produtos.Find(produto); */
+
+            Comanda comandadb = RetornaComanda(comanda);
+            Produto produtodb = RetornaProduto(produto);
 
             decimal valorNovoProduto = produtodb.Preco;
 
@@ -39,14 +63,36 @@ namespace SistemaPub.Repository
 
             _db.Comandas.Update(comandadb);
             _db.SaveChanges();
+            return valorIdPedido;
         }
 
-      /*  public void AtualizaPrecoComanda (int produtoId)
+        public void RetiraPrecoComanda(Comanda comanda, decimal valor)
         {
-            decimal preco = 0;
-            var produto = _db.Produtos.Find(produtoId);
-            preco = 
-        } */
+            comanda.ValorComanda -= valor;
+            _db.Comandas.Update(comanda);
+            _db.SaveChanges();
+   
+        }
+
+        public void RemoverPedido(int idpedido)
+        {
+            ProdutoComanda produtocomanda = _db.ProdutosComandas.Find(idpedido);
+            Produto produtodb = RetornaProduto(produtocomanda.ProdutoId);
+            Comanda comandadb = RetornaComanda(produtocomanda.ComandaId);
+
+            RetiraPrecoComanda(comandadb, produtodb.Preco);         
+            _db.ProdutosComandas.Remove(produtocomanda);
+            _db.SaveChanges();
+        }
+
+
+
+        /*  public void AtualizaPrecoComanda (int produtoId)
+          {
+              decimal preco = 0;
+              var produto = _db.Produtos.Find(produtoId);
+              preco = 
+          } */
 
     }
 }

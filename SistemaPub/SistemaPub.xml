@@ -46,7 +46,7 @@
             Método para adicionar um novo Item/Produto/Prato à lista
             </summary>
             <param name="produto">{
-            <para>nome": "Batata com cheddar e bacon", "preco": 10, estoque: 4</para>
+            <para>"nome": "Batata com cheddar e bacon", "preco": 10, estoque: 4</para>
             <para>}</para>
             <para>Obs: Estoque é opcional, você pode remover este atributo caso prefira</para>
             </param>

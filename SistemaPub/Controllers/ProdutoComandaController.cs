@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SistemaPub.Models;
 using SistemaPub.Repository.Interfaces;
 
 namespace SistemaPub.Controllers
@@ -22,8 +23,18 @@ namespace SistemaPub.Controllers
         [HttpPost("{IdComanda}/{IdProduto}")]
         public IActionResult NovoPedido(int IdComanda, int IdProduto)
         {
-            _repo.NovoPedido(IdComanda, IdProduto);
-            return Ok($"Produto adicionado");
+           int idpedido = _repo.NovoPedido(IdComanda, IdProduto);
+            Produto produto = _repo.RetornaProduto(IdProduto);
+            Comanda comanda = _repo.RetornaComanda(IdComanda);
+            
+            return Ok($"O {idpedido}item {produto.Nome} ${produto.Preco} foi acrescentado na comanda: {comanda.IdentificaCliente}({comanda.Id})");
+        }
+
+        [HttpDelete]
+        public IActionResult RemoverPedido(int IdPedido)
+        {
+            _repo.RemoverPedido(IdPedido);
+            return Ok("Removido!");
         }
 
         [HttpGet]

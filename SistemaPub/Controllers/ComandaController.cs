@@ -27,7 +27,7 @@ namespace SistemaPub.Controllers
         public async Task<IActionResult> AdicionarNovaComanda([FromBody] Comanda comanda)
         {
             await _repo.AdicionarNovaComanda(comanda);
-            return Ok($"A comanda para {comanda.IdentificaCliente} foi adicionada");
+            return Ok($"A comanda para {comanda.IdentificaCliente}(ID: {comanda.Id}) foi aberta");
         }
 
 
@@ -49,10 +49,10 @@ namespace SistemaPub.Controllers
                     sb.AppendLine(pc.Produto.Nome);
                 }
             }
-            return Ok($"A comanda do cliente {comanda.IdentificaCliente} foi fechada!\n" +
+            return Ok($"A comanda do cliente {comanda.IdentificaCliente}(ID: {comanda.Id}) foi fechada!\n" +
                 $"Relatório:\n" +
                 $"{sb}\n" +
-                $"Valor total:{comanda.ValorComanda}");
+                $"Valor total: ${comanda.ValorComanda} R$");
         }
 
         /// <summary>

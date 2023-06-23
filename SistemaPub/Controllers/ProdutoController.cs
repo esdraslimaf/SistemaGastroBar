@@ -19,7 +19,7 @@ namespace SistemaPub.Controllers
         /// Método para adicionar um novo Item/Produto/Prato à lista
         /// </summary>
         /// <param name="produto">{
-        /// <para>nome": "Batata com cheddar e bacon", "preco": 10, estoque: 4</para>
+        /// <para>"nome": "Batata com cheddar e bacon", "preco": 10, estoque: 4</para>
         /// <para>}</para>
         /// <para>Obs: Estoque é opcional, você pode remover este atributo caso prefira</para>
         /// </param>
@@ -28,7 +28,7 @@ namespace SistemaPub.Controllers
         public IActionResult AdicionarProduto([FromBody] Produto produto)
         {
             _repo.AdicionarProduto(produto);
-            return Ok($"Produto {produto.Nome} ${produto.Preco} foi adicionado!");
+            return Ok($"Produto {produto.Nome}(ID:{produto.Id}) - ${produto.Preco} foi adicionado ao menu!");
         }
         /// <summary>
         /// Busca todos os itens disponíveis no cardápio
