@@ -1,6 +1,7 @@
 ﻿using SistemaPub.Database;
 using SistemaPub.Repository.Interfaces;
 using SistemaPub.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SistemaPub.Repository
 {
@@ -15,6 +16,13 @@ namespace SistemaPub.Repository
         public List<ProdutoComanda> BuscarPedidosClientes()
         {
             return _db.ProdutosComandas.ToList();
+        }
+
+        public List<ProdutoComanda> BuscarPedidosClienteId(int id) {
+
+            Comanda comanda = _db.Comandas.Include(c => c.ProdutosComanda).FirstOrDefault(c=>c.Id==id)!;
+            return comanda.ProdutosComanda.ToList();
+
         }
 
         /*  public decimal ContaTotal(int id)

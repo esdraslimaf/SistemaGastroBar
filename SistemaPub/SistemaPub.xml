@@ -41,6 +41,25 @@
             <param name="IdProduto"></param>
             <returns></returns>
         </member>
+        <member name="M:SistemaPub.Controllers.ProdutoComandaController.RemoverPedido(System.Int32)">
+            <summary>
+            Remove um determinado pedido de um cliente
+            </summary>
+            <param name="IdPedido"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SistemaPub.Controllers.ProdutoComandaController.BuscarPedidosClientes">
+            <summary>
+            Busca todos os pedidos realizados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SistemaPub.Controllers.ProdutoComandaController.BuscarPedidosClienteId(System.Int32)">
+            <summary>
+            Busca informações dos pedidos de um único cliente(Passe o ID do cliente)
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:SistemaPub.Controllers.ProdutoController.AdicionarProduto(SistemaPub.Models.Produto)">
             <summary>
             Método para adicionar um novo Item/Produto/Prato à lista

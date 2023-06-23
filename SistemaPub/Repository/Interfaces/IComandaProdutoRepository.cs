@@ -9,6 +9,6 @@ namespace SistemaPub.Repository.Interfaces
         void RemoverPedido(int idpedido);
         Comanda RetornaComanda(int id);
         Produto RetornaProduto(int id);
-        
+        List<ProdutoComanda> BuscarPedidosClienteId(int id);
     }
 }

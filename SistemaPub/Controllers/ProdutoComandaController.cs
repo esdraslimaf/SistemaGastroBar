@@ -27,20 +27,36 @@ namespace SistemaPub.Controllers
             Produto produto = _repo.RetornaProduto(IdProduto);
             Comanda comanda = _repo.RetornaComanda(IdComanda);
             
-            return Ok($"O {idpedido}item {produto.Nome} ${produto.Preco} foi acrescentado na comanda: {comanda.IdentificaCliente}({comanda.Id})");
+            return Ok($"{produto.Nome} ${produto.Preco} foi acrescentado na comanda: {comanda.IdentificaCliente}({comanda.Id}) - ID DO PEDIDO: ({idpedido})");
         }
-
-        [HttpDelete]
+        /// <summary>
+        /// Remove um determinado pedido de um cliente
+        /// </summary>
+        /// <param name="IdPedido"></param>
+        /// <returns></returns>
+        [HttpDelete("RemoverPedidoCliente")]
         public IActionResult RemoverPedido(int IdPedido)
         {
             _repo.RemoverPedido(IdPedido);
             return Ok("Removido!");
         }
-
-        [HttpGet]
+        /// <summary>
+        /// Busca todos os pedidos realizados
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("BuscarTodosPedidosClientes")]
         public IActionResult BuscarPedidosClientes()
         {
             return Ok(_repo.BuscarPedidosClientes());
+        }
+        /// <summary>
+        /// Busca informações dos pedidos de um único cliente(Passe o ID do cliente)
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("BuscarPedidosUnicoCliente{id}")]
+        public IActionResult BuscarPedidosClienteId(int id)
+        {
+            return Ok(_repo.BuscarPedidosClienteId(id));
         }
     }
 }
