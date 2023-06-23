@@ -28,7 +28,9 @@ Fique à vontade para explorar o código e contribuir com sugestões e melhorias
 ![image](https://github.com/esdraslimaf/SistemaGastroBar/assets/101669187/0c8f8a14-3aa2-4d96-9a2c-21f340cd1d65)
 
 
-## Cadastrar pedidos.
+## Gerenciar pedidos: Cadastrar, remover, buscar pedidos.
+![image](https://github.com/esdraslimaf/SistemaGastroBar/assets/101669187/d60211ba-7da8-434f-b81a-d4179a0cae37)
+
 ![image](https://github.com/esdraslimaf/SistemaGastroBar/assets/101669187/a8131a51-4b0f-4151-acb3-a0b08640dc18)
 ![image](https://github.com/esdraslimaf/SistemaGastroBar/assets/101669187/865f0a07-91ed-4743-8e83-4e62e97e8e2b)
 
