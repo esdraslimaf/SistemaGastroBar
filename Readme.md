@@ -4,7 +4,7 @@
 # Sobre o projeto
 ![image](https://github.com/esdraslimaf/SistemaGastroBar/assets/101669187/58cf5514-de5b-4ead-8ca0-f74542dc3907)
 
-Este projeto é API para o gerenciamento de pedidos em estabelecimentos como bares, restaurantes e muito mais. Com ela, é possível cadastrar e atualizar itens no cardápio, receber e processar pedidos, acompanhar contas em aberto e gerar relatórios detalhados para mesas e clientes. 
+Este projeto de API foi desenvolvido para oferecer um sistema de gerenciamento de pedidos em estabelecimentos, como bares e restaurantes, proporcionando uma solução completa. Com ela, é possível cadastrar e atualizar itens no cardápio, receber e processar pedidos, acompanhar contas em aberto e gerar relatórios detalhados para mesas e clientes. 
 
 Projeto desenvolvido por [Esdras Lima](https://www.linkedin.com/in/esdrasdev/) este projeto visa proporcionar uma solução eficiente e prática para o gerenciamento de estabelecimentos comerciais.
 
